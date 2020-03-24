@@ -205,8 +205,9 @@
           "node": {
             "__id__": 6
           },
-          "_alignFlags": 1,
-          "_top": 5.5
+          "_alignFlags": 41,
+          "_top": 5.5,
+          "_originalWidth": 1136
         }
       ],
       "_color": {
@@ -317,6 +318,14 @@
           "_N$target": {
             "__id__": 9
           }
+        },
+        {
+          "__type__": "cc.Widget",
+          "node": {
+            "__id__": 8
+          },
+          "_alignFlags": 8,
+          "_left": 31
         }
       ],
       "_contentSize": {
@@ -426,8 +435,9 @@
           "node": {
             "__id__": 11
           },
-          "_alignFlags": 4,
-          "_bottom": 0.5
+          "_alignFlags": 44,
+          "_bottom": 0.5,
+          "_originalWidth": 1136
         }
       ],
       "_color": {
