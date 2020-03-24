@@ -51,15 +51,15 @@ __require = function e(t, n, r) {
       },
       onSpadesBtnClicked: function onSpadesBtnClicked() {
         this.onPopupCloseBtnClicked();
-        this.webView.url = "https://www.baidu.com";
+        this.webView.url = "https://jyosisi.github.io/SpadesTest/";
       },
       onGinRummyBtnClicked: function onGinRummyBtnClicked() {
         this.onPopupCloseBtnClicked();
-        this.webView.url = "https://www.cocos.com";
+        this.webView.url = "https://jyosisi.github.io/cocosTest_1_10_0/";
       },
       onPattiBtnClicked: function onPattiBtnClicked() {
         this.onPopupCloseBtnClicked();
-        this.webView.url = "https://www.163.com";
+        this.webView.url = "https://jyosisi.github.io/helloworld/";
       }
     });
     cc._RF.pop();
