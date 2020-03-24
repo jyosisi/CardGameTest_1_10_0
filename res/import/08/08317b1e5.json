@@ -93,6 +93,9 @@
           },
           "webView": {
             "__id__": 5
+          },
+          "selectGameBtn": {
+            "__id__": 8
           }
         }
       ],

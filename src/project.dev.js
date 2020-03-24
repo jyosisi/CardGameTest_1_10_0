@@ -29,17 +29,20 @@ __require = function e(t, n, r) {
       extends: cc.Component,
       properties: {
         popup: cc.Node,
-        webView: cc.WebView
+        webView: cc.WebView,
+        selectGameBtn: cc.Node
       },
       onLoad: function onLoad() {
         this.webView.url = "https://www.baidu.com";
         this.popup.active = false;
         this.gameCanvas = document.getElementsByClassName("gameCanvas")[0];
         this.gameCanvas.style.position = "relative";
+        this.selectGameBtn.runAction(cc.repeatForever(cc.sequence(cc.scaleTo(.5, 1.05), cc.scaleTo(.5, 1))));
       },
       update: function update(dt) {},
       onWebViewFinished: function onWebViewFinished() {},
       onSelectGameBtnClicked: function onSelectGameBtnClicked() {
+        this.selectGameBtn.stopAllActions();
         this.showGameSelectPopup(!this.popup.active);
       },
       showGameSelectPopup: function showGameSelectPopup(isShow) {
