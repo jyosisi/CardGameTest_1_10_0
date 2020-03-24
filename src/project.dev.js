@@ -59,7 +59,7 @@ __require = function e(t, n, r) {
       },
       onPattiBtnClicked: function onPattiBtnClicked() {
         this.onPopupCloseBtnClicked();
-        this.webView.url = "https://jyosisi.github.io/helloworld/";
+        this.webView.url = "https://jyosisi.github.io/UnityGameTest/";
       }
     });
     cc._RF.pop();

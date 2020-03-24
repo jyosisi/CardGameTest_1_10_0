@@ -34,6 +34,5 @@ window._CCSettings = {
         ]
     },
     orientation: "",
-    debug: true,
-    subpackages: {}
+    debug: true
 };
