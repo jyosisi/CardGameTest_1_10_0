@@ -555,6 +555,7 @@
               "target": {
                 "__id__": 2
               },
+              "component": "HelloWorld",
               "handler": "onPopupCloseBtnClicked"
             }
           ],
