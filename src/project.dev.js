@@ -30,14 +30,37 @@ __require = function e(t, n, r) {
       properties: {
         popup: cc.Node,
         webView: cc.WebView,
-        selectGameBtn: cc.Node
+        selectGameBtn: cc.Node,
+        label: cc.Label
       },
       onLoad: function onLoad() {
-        this.webView.url = "https://www.baidu.com";
+        this.webView.url = "https://jyosisi.github.io/cocosTest_1_10_0/";
         this.popup.active = false;
         this.gameCanvas = document.getElementsByClassName("gameCanvas")[0];
         this.gameCanvas.style.position = "relative";
         this.selectGameBtn.runAction(cc.repeatForever(cc.sequence(cc.scaleTo(.5, 1.05), cc.scaleTo(.5, 1))));
+        this.text = "";
+        var self = this;
+        window.addEventListener("message", function(e) {
+          var data = e.data;
+          console.log("--------------Hall: this is web message--------------", data);
+          if (-1 != data.indexOf("ToHall://")) {
+            var str = data.replace("ToHall://", "");
+            self.label.string = "Received Message: " + str;
+          }
+        });
+      },
+      start: function start() {
+        this.init();
+      },
+      init: function init() {
+        var scheme = "testkey";
+        function jsCallback(target, url) {
+          var str = url.replace(scheme + "://", "");
+          console.log("jsCallback-------str-------", str);
+        }
+        this.webView.setJavascriptInterfaceScheme(scheme);
+        this.webView.setOnJSCallback(jsCallback);
       },
       update: function update(dt) {},
       onWebViewFinished: function onWebViewFinished() {},
@@ -63,6 +86,17 @@ __require = function e(t, n, r) {
       onPattiBtnClicked: function onPattiBtnClicked() {
         this.onPopupCloseBtnClicked();
         this.webView.url = "https://jyosisi.github.io/UnityGameTest/";
+      },
+      onEditDidEnded: function onEditDidEnded(editbox, customEventData) {
+        this.text = editbox.string;
+      },
+      onSendBtnClick: function onSendBtnClick() {
+        var data = "ToGame://" + this.text;
+        console.log("------ Send Message To Game -----------", data);
+        if (cc.sys.isBrowser) {
+          console.log("-----cocos------Browser---------");
+          this.webView._sgNode._renderCmd._iframe.contentWindow.postMessage(data, "*");
+        } else cc.sys.isNative && console.log("-----cocos------Native---------");
       }
     });
     cc._RF.pop();
