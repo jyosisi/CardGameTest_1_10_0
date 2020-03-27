@@ -38,7 +38,6 @@ __require = function e(t, n, r) {
         this.popup.active = false;
         this.gameCanvas = document.getElementsByClassName("gameCanvas")[0];
         this.gameCanvas.style.position = "relative";
-        this.selectGameBtn.runAction(cc.repeatForever(cc.sequence(cc.scaleTo(.5, 1.05), cc.scaleTo(.5, 1))));
         this.text = "";
         var self = this;
         window.addEventListener("message", function(e) {
